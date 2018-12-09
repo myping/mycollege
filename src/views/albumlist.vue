@@ -4,7 +4,7 @@
         <div v-for="(item, index) in data" :key="index">
             <van-collapse v-model="activeNames" accordion >
                 <van-collapse-item :title="item.albumname" :name="index">
-                    <p>{{item.desc}}</p>
+                    <p>{{item.desc}}</p><van-rate v-model="item.hottempture" color="#ff0000" :size = "12" readonly/>
                     <span>{{item.author}}-{{item.photodate}}</span>
                     <img src="item.imgurl" v-lazy="item.imgurl">
                 </van-collapse-item>
@@ -31,6 +31,7 @@
                     "author": "@cname",
                     "photodate": "@date",
                     "albumname": "@ctitle",
+                    "hottempture": "@integer(0,5)",
                     }
                 ],
             });
